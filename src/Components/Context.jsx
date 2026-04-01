@@ -6,11 +6,9 @@ export const StoreContext = createContext(null);
 const Context = ({ children }) => {
   const [celsius, setCelsius] = useState("C");
 
-  // Page 1: single-day data
   const [weather, setWeather] = useState(null);
   const [airQuality, setAirQuality] = useState(null);
 
-  // Page 2: range data
   const [rangeWeather, setRangeWeather] = useState(null);
   const [rangeAirQuality, setRangeAirQuality] = useState(null);
 
@@ -26,7 +24,8 @@ const Context = ({ children }) => {
   const handleStartDate = useMemo(() => dateRange.start.toISOString().split("T")[0], [dateRange.start]);
   const handleEndDate = useMemo(() => dateRange.end.toISOString().split("T")[0], [dateRange.end]);
 
-  // STEP 1 → Get GPS only once
+
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -36,7 +35,7 @@ const Context = ({ children }) => {
     );
   }, []);
 
-  // STEP 2 → Fetch single-day weather + air quality
+
   useEffect(() => {
     if (!coords) return;
 
@@ -51,8 +50,6 @@ const Context = ({ children }) => {
         const [weatherRes, airRes] = await Promise.all([axios.get(weatherURL), axios.get(airURL)]);
 
         setWeather(weatherRes.data);
-        console.log(weatherRes.data)
-        
         setAirQuality(airRes.data);
       } catch (error) {
         console.error("API fetch error (single-day):", error);
@@ -62,7 +59,8 @@ const Context = ({ children }) => {
     fetchData();
   }, [coords, handleDate]);
 
-  // STEP 3 → Fetch range data for Page 2
+  
+  
   useEffect(() => {
     if (!coords) return;
     if (!dateRange.start || !dateRange.end) return;

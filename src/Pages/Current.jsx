@@ -13,14 +13,11 @@ const Current = () => {
     return <span className='text-white'>Loading...</span>;
   }
 
-console.log("star")
-
   return (
     <div className='min-h-full'>
       <Header />
       <Hero />
 
-      {/* Suspense wraps the lazy component */}
       <Suspense fallback={<div className="text-white p-5">Loading graphs...</div>}>
         <HeroGraph weather={weather} airQuality={airQuality} />
       </Suspense>

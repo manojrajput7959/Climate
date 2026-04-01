@@ -8,19 +8,19 @@ import AirQualityGraph from "./AirQualityGraph";
 const GraphContainer = ({ rangeWeather, rangeAirQuality }) => {
   return (
     <div className="my-10 px-5 flex flex-col gap-10">
-      {/* Top Row: Temperature + Sunrise/Sunset */}
+
+
       <div className="flex flex-col md:flex-row md:justify-between gap-6">
         <TemperatureGraph rangeWeather={rangeWeather} />
         <SunriseSunsetGraph rangeWeather={rangeWeather} />
       </div>
 
-      {/* Middle Row: Precipitation + Wind */}
+
       <div className="flex flex-col md:flex-row md:justify-between gap-6">
         <PrecipitationGraph rangeWeather={rangeWeather} />
         <WindGraph rangeWeather={rangeWeather} />
       </div>
 
-      {/* Bottom Row: Air Quality */}
       <div>
         <AirQualityGraph rangeAirQuality={rangeAirQuality} />
       </div>
