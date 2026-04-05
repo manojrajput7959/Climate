@@ -12,8 +12,8 @@ const Context = ({ children }) => {
   const [rangeWeather, setRangeWeather] = useState(null);
   const [rangeAirQuality, setRangeAirQuality] = useState(null);
 
-  const [coords, setCoords] = useState(null);
-  const [date, setDate] = useState(new Date());
+  const [coords, setCoords] = useState(null)
+  const [date, setDate] = useState(new Date())
   const [dateRange, setDateRange] = useState({ start: new Date(new Date().setDate(new Date().getDate() - 20)),
      end: new Date() });
 

@@ -17,7 +17,7 @@ const HeroGraph = ({ weather, airQuality }) => {
             </div>
 
             {/* Row 2 */}
-            <div className="flex flex-col md:flex-row mt-auto md:justify-between gap-5 md:gap-0">
+            <div className="flex flex-col md:flex-row lg:mt-10 mt-auto md:justify-between gap-5 md:gap-0">
                 <Precipitation weather={weather} />
                 <Visibility weather={weather} />
             </div>
